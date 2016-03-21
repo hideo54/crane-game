@@ -6,31 +6,38 @@ import time
 usage = '[Usage] `python motor-ctl.py [number] [direction] [command]`'
 
 # DO NOT FORGET execute `python motor-ctl.py kill` when you stop running the game.
-if len(sys.argv) == 2 and sys.argv[1] == 'kill':
-    GPIO.cleanup()
-    sys.exit()
-elif len(sys.argv) != 4:
-    print(usage)
-    sys.exit()
+if len(sys.argv) == 2
+    if sys.argv[1] == 'open':
+        mode = 'open'
+    elif sys.argv[1] == 'kill':
+        GPIO.cleanup()
+        sys.exit()
+    else:
+        print(usage)
+        sys.exit()
+elif len(sys.argv) == 4:
+    mode = 'run'
+    try:
+        motor = int(sys.argv[1])
+        if motor != 1 or 2 or 3:
+            raise Exception('improper')
+    except:
+        print('Specify motor number as 1, 2, or 3')
+        print(usage)
+        sys.exit()
 
-try:
-    motor = int(sys.argv[1])
-    if motor != 1 or 2 or 3:
-        raise Exception('improper')
-except:
-    print('Specify motor number as 1, 2, or 3')
-    print(usage)
-    sys.exit()
+    direction = sys.argv[2]
+    if direction != 'left' or 'right':
+        print('Specify move direction as left or right')
+        print(usage)
+        sys.exit()
 
-direction = sys.argv[2]
-if direction != 'left' or 'right':
-    print('Specify move direction as left or right')
-    print(usage)
-    sys.exit()
-
-command = sys.argv[3]
-if command != 'start' or 'stop':
-    print('Specify command as start or stop')
+    command = sys.argv[3]
+    if command != 'start' or 'stop':
+        print('Specify command as start or stop')
+        print(usage)
+        sys.exit()
+else:
     print(usage)
     sys.exit()
 
@@ -48,9 +55,13 @@ with open('pins.json', 'r') as file:
     input5 = data['input5']
     input6 = data['input6']
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(data.values(), GPIO.OUT)
-GPIO.output(enable, True)
+if mode == 'start'
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(data.values(), GPIO.OUT)
+    GPIO.output(data.values(), False)
+    GPIO.output(enable, True)
+    print('Ready to run the game.')
+    sys.exit()
 
 if motor == 1:
     output = [input1, input2]
