@@ -5,11 +5,11 @@ import time
 
 usage = '[Usage] `python motor-ctl.py [number] [direction] [command]`'
 
-# DO NOT FORGET execute `python motor-ctl.py kill` when you stop running the game.
+# DO NOT FORGET execute `python motor-ctl.py close` when you stop running the game.
 if len(sys.argv) == 2
     if sys.argv[1] == 'open':
         mode = 'open'
-    elif sys.argv[1] == 'kill':
+    elif sys.argv[1] == 'close':
         GPIO.cleanup()
         sys.exit()
     else:
