@@ -1,0 +1,87 @@
+doctype html
+html
+    head
+        title クレーンゲーム
+        meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+        style.
+            body {
+                padding: auto;
+            }
+            h1 {
+                text-align: center;
+            }
+            button#ctl, button#play {
+                display: block;
+                margin: 0 auto;
+                font-size: 100px;
+                color: white;
+                -webkit-appearance: none;
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -o-user-select: none;
+            }
+            button#ctl {
+                width: 200px;
+                height: 200px;
+                background-color: #2ecc71;
+                border-radius: 50%;
+            }
+            button#ctl:active {
+                background-color: #27ae60;
+            }
+            button#play {
+                width: 500px;
+                height: 100px;
+                background-color: #e74c3c;
+                border-radius: 25px;
+            }
+    body
+        h1 Crane Game Remote Controller
+        button#ctl 向
+        button#play 始める
+        script.
+            var ctlButton = document.getElementById('ctl');
+            var playButton = document.getElementById('play');
+            ctlButton.style.display = 'none';
+
+            function post(req) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/');
+                xhr.send(req);
+            }
+
+            function* update() {
+                while (true) {
+                    // When play button is tapped:
+                    var count = 1;
+                    ctlButton.style.display = 'block';
+                    ctlButton.innerHTML = '右';
+                    yield playButton.style.display = 'none';
+                    yield;
+                    // When right button is tapped down:
+                    yield post(`right`);
+                    // When right button is tapped up:
+                    ctlButton.innerHTML = '前';
+                    yield post('stop');
+                    // When forward button is tapped down:
+                    yield post('forward');
+                    // When forward button is tapped up:
+                    ctlButton.innerHTML = '下';
+                    yield post('stop');
+                    // When down button is tapped down:
+                    yield post('down');
+                    // When down button is tapped up:
+                    post('back');
+                    ctlButton.style.display = 'none';
+                    playButton.style.display = 'block';
+                    yield;
+                }
+            }
+
+            let updateObj = update();
+            playButton.addEventListener('mousedown', e => updateObj.next());
+            ctlButton.addEventListener('mousedown', e => updateObj.next());
+            ctlButton.addEventListener('mouseup', e => updateObj.next());
