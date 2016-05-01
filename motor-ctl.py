@@ -38,10 +38,20 @@ if len(sys.argv) == 2:
     enableInputs([enable])
     if command == 'right':
         enableInputs([input1])
+    elif command == 'left':
+        enableInputs([input2])
     elif command == 'forward':
         enableInputs([input3])
+    elif command == 'backward':
+        enableInputs([input4])
     elif command == 'down':
         enableInputs([input5])
+    elif command == 'up':
+        enableInputs([input6])
+    elif command == 'grasp':
+        enableInputs([input7])
+    elif command == 'release':
+        enableInputs([input8])
     elif command == 'back':
         # Grasp
         enableInputs([input7])
@@ -53,7 +63,7 @@ if len(sys.argv) == 2:
         # Go to goal
         enableInputs([input1, input3])
         time.sleep(10)
-        # Let go off
+        # Release
         enableInputs([input8])
         time.sleep(10)
         # Go home
