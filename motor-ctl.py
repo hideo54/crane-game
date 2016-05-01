@@ -45,20 +45,20 @@ if len(sys.argv) == 2:
     elif command == 'back':
         # Grasp
         enableInputs([input7])
-        sleep(10)
+        time.sleep(10)
         enableInputs([])
         # Up
         enableInputs([input6])
-        sleep(5)
+        time.sleep(5)
         # Go to goal
         enableInputs([input1, input3])
-        sleep(10)
+        time.sleep(10)
         # Let go off
         enableInputs([input8])
-        sleep(10)
+        time.sleep(10)
         # Go home
         enableInputs([input2, input4])
-        sleep(10)
+        time.sleep(10)
         sys.exit()
     elif command == 'stop':
         enableInputs([])
