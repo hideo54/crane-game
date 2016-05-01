@@ -70,4 +70,4 @@ if len(sys.argv) == 2:
 else:
     print('Invalid command.')
     print(usage)
-    sys.quit()
+    sys.exit()
