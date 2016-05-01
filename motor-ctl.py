@@ -36,7 +36,6 @@ if len(sys.argv) == 2:
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(data.values(), GPIO.OUT)
     enableInputs([enable])
-    print('Ready to run the game.')
     if command == 'right':
         enableInputs([input1])
     elif command == 'forward':
