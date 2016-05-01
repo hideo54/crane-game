@@ -41,9 +41,9 @@ if len(sys.argv) == 2:
         enableInputs([input1])
     elif command == 'forward':
         enableInputs([input3])
-    elif command = 'down':
+    elif command == 'down':
         enableInputs([input5])
-    elif command = 'back':
+    elif command == 'back':
         # Grasp
         enableInputs([input7])
         sleep(10)
@@ -61,7 +61,7 @@ if len(sys.argv) == 2:
         enableInputs([input2, input4])
         sleep(10)
         sys.exit()
-    elif command = 'stop':
+    elif command == 'stop':
         enableInputs([])
     else:
         print('Invalid command.')
