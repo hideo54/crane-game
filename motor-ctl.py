@@ -28,7 +28,7 @@ with open('pins.json', 'r') as file:
 def enableInputs(inputs):
     GPIO.output(data.values(), False)
     for input in inputs:
-        GPIO.output([input, True])
+        GPIO.output(input, True)
 
 # DO NOT FORGET execute `python motor-ctl.py close` when you stop running the game.
 if len(sys.argv) == 2:
