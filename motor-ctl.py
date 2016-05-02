@@ -64,7 +64,7 @@ if len(sys.argv) == 2:
         enableInputs([input1, input6])
         time.sleep(2)
         enableInputs([input1])
-        time.sleep(10)
+        time.sleep(15)
         # Release
         enableInputs([input8])
         time.sleep(6)
@@ -72,7 +72,7 @@ if len(sys.argv) == 2:
         enableInputs([input2, input4])
         time.sleep(8)
         enableInputs([input2])
-        time.sleep(12)
+        time.sleep(5)
 # left: 20
 # forward: 8
 # Down: 10
