@@ -2,7 +2,7 @@ var http = require('http'),
     pug = require('pug'),
     exec = require('child_process').exec;
 
-console.log('Make sure you\'ve already executed `python motor-ctl.py open`!');
+console.log('Ready to start.');
 http.createServer(function (req, res) {
     if (req.method == 'GET') {
         res.writeHead(200, {'Content-Type': 'text/html'});

@@ -1,30 +1,43 @@
 # crane-game
 
-Crane game that will be displayed at NADA school festival 2016.
+2016年灘校文化祭のNPCA(灘校パソコン研究部)ブースにて展示されたクレーンゲームです。
 
-## How to play
+## バージョン
 
-### Configuration of back-end
+Ver 1.0
 
-1. Make your breadboard ready to be plugged wires. Use 3V alkaline batteries and motor controllers such as L293D.
-2. Wire your Rapsberry Pi into a breadboard in the right way.
-3. Execute `python motor-ctl.py open`
-4. Now it's ready! The program controls motors when a certain command is executed by front-end.
-5. When you wanna finish running the program, execute `python motor-ctl.py close` to finish using GPIO process gracefully.
+## 遊び方
 
-### Configuration of web server
+1. まず、このリポジトリをcloneします。
 
-_Now in progress_
+### バックエンドの準備
 
-### Start playing
+1. ブレッドボードにワイヤーをつないでもいい状態にします。6Vのアルカリ電池と2つのモータードライバ(L293Dなど)を使用してください。
+2. Raspberry Piとブレッドボードとを正しく配線してください。
+3. どこに配線したかについてpins.jsonに記録してください。
+4. 準備完了です! 正しいコマンドが実行された時、プログラムによってモーターが制御されます。
 
-_Now in progress_
+### Webサーバーの準備
 
-## Environment
+1. `npm install`
+2. `node server.js`
 
-* Python 2.6 or later (Python 3.* might be suitable as well)
+### 遊ぶ
 
-## Contact
+http://[RPi-address]:3000 にアクセスしてお楽しみください。
+
+## 環境
+
+* Raspberry Pi
+* Jessieベースの Raspbian OS (Wheezyベース以前のものとは違い、非sudoユーザーでもGPIOを制御できます)
+* Python 2.6 以降 (Python 3.* でも同様に対応可能かもしれません)
+* Node.js (あまり古いものは対応していません)
+
+## ライセンス
+
+Apache 2.0
+
+## 連絡先
 
 * E-mail: contact@hideo54.com
 * Twitter: @hideo54
