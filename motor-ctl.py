@@ -60,9 +60,9 @@ if len(sys.argv) == 2:
         time.sleep(10)
         # Go to goal
         enableInputs([input1, input3, input6])
-        time.sleep(8)
+        time.sleep(6)
         enableInputs([input1, input6])
-        time.sleep(2)
+        time.sleep(4)
         enableInputs([input1])
         time.sleep(15)
         # Release
@@ -70,13 +70,13 @@ if len(sys.argv) == 2:
         time.sleep(6)
         # Go home
         enableInputs([input2, input4])
-        time.sleep(8)
+        time.sleep(11)
         enableInputs([input2])
-        time.sleep(5)
+        time.sleep(1)
+        enableinputs([])
 # left: 20
 # forward: 8
 # Down: 10
-        sys.exit()
     elif command == 'stop':
         enableInputs([])
     else:
