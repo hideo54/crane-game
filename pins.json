@@ -1,11 +1,10 @@
 {
-    "enable": 7,
-    "input1": 11,
-    "input2": 12,
-    "input3": 13,
-    "input4": 15,
-    "input5": 16,
-    "input6": 18,
-    "input7": 22,
-    "input8": 29
+    "input1": 3,
+    "input2": 5,
+    "input3": 7,
+    "input4": 11,
+    "input5": 12,
+    "input6": 13,
+    "input7": 15,
+    "input8": 16
 }

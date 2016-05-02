@@ -15,7 +15,6 @@ commands:
 # Save pin numbers:
 with open('pins.json', 'r') as file:
     data = json.loads(file.read())
-    enable = data['enable']
     input1 = data['input1']
     input2 = data['input2']
     input3 = data['input3']
@@ -35,7 +34,6 @@ if len(sys.argv) == 2:
     command = sys.argv[1]
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(data.values(), GPIO.OUT)
-    enableInputs([enable])
     if command == 'right':
         enableInputs([input1])
     elif command == 'left':
