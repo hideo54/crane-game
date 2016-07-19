@@ -8,7 +8,7 @@ Ver 1.0
 
 ## How to play
 
-1. First, clone this reqpository.
+1. First, clone this repository.
 
 ### Configuration of back-end
 
