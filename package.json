@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hideo54/crane-game#readme",
   "dependencies": {
-    "pug": "^2.0.0-alpha6"
+    "pug": "^2.0.0-alpha6",
+    "speakeasy": "^2.0.0"
   }
 }
